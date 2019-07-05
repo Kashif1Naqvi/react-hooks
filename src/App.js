@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
 function App() {
+  let [counter,setCounter,] = useState(0)
+ let increment = () => {
+    (counter >= 10) ?  alert("greater than 10 number's not allowed") : setCounter(counter + 1)
+  }
+let decrement = () => {
+  (counter <= 0) ?  alert("greater than 0 number's allowed") : setCounter(counter - 1)
+}
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <button
+          onClick={increment}
+          className="btn btn-primary"
         >
-          Learn React
-        </a>
+          increment
+        </button><br />
+        <p>
+          counter is: {counter}
+        </p>
+        <br />
+        <button
+          onClick={decrement}
+          className="btn btn-primary"
+        >
+          decrement
+        </button>
       </header>
     </div>
   );
+ 
+ 
 }
 
 export default App;
